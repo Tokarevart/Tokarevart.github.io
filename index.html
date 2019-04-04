@@ -1,0 +1,22 @@
+<h1>Polymgen</h1>
+<p>Polymgen is a library for generating tetrahedral mesh of many polyhedrons. 
+It is created with the purpose of use in solving boundary-value problems for polycrystal by the finite element method.</p>
+<h2>Example:</h2>
+<pre><code class='language-c++' lang='c++'>// Number of cubes along the corresponding axis.
+size_t nX = 2, nY = 4, nZ = 8;
+psg::PolyShell shell = psg::generateCuboids(nX, nY, nZ);
+pmg::PolyhedralSet polyhedr(shell);
+
+// Preferred tetrahedron edge length.
+double preferredLength = 0.45;
+polyhedr.generateMesh(preferredLength);
+polyhedr.output(pmg::PolyhedralSet::FileType::WavefrontObj); // Or ...FileType::LsDynaKeyword
+</code></pre>
+<p>
+    <img src='https://github.com/Tokarevart/polymgen/blob/master/images/polymesh_3.png?raw=true' alt='Cube mesh' referrerPolicy='no-referrer' />
+    <img src='https://github.com/Tokarevart/polymgen/blob/master/images/polymesh_2.png?raw=true' alt='Cube mesh' referrerPolicy='no-referrer' />
+    <img src='https://github.com/Tokarevart/polymgen/blob/master/images/polymesh_1.png?raw=true' alt='Cube mesh' referrerPolicy='no-referrer' />
+</p>
+<h2>License</h2>
+<p>Copyright © 2018-2019 Tokarev Artem Alekseevich. All rights reserved.</p>
+<p>Licensed under the <a href='https://github.com/Tokarevart/polymgen/blob/master/LICENSE'>MIT License</a>.</p>
